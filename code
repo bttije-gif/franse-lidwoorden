@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franse Lidwoorden Oefenen - Mavo/Havo 1</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #eff6ff;
+            --success: #16a34a;
+            --error: #dc2626;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 { margin: 0 0 10px 0; font-size: 2rem; }
+        .subtitle { font-size: 1.1rem; opacity: 0.9; margin: 0; }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .grammar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .grammar-grid { grid-template-columns: 1fr; }
+        }
+
+        .grammar-box {
+            background-color: var(--primary-light);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .grammar-box h3 { margin-top: 0; color: #1e40af; }
+
+        .exercise-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #f1f5f9;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .exercise-item:last-child { border-bottom: none; }
+
+        .word-label { font-size: 1.1rem; font-weight: 500; }
+
+        select, input[type="text"] {
+            padding: 8px 12px;
+            font-size: 1rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        select:focus, input[type="text"]:focus {
+            border-color: var(--primary);
+        }
+
+        .fill-input { width: 80px; text-align: center; }
+
+        .feedback {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .correct { color: var(--success); }
+        .incorrect { color: var(--error); }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 15px;
+        }
+
+        .btn:hover { background-color: #1d4ed8; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🇫🇷 Franse Lidwoorden Oefenen</h1>
+        <p class="subtitle">Oefen met <i>le, la, l', les, un</i> en <i>une</i> (Brugklas Mavo/Havo)</p>
+    </header>
+
+    <!-- GRAMMATICA SPIEKBRIEFJE -->
+    <div class="card">
+        <h2>📚 Spiekbriefje</h2>
+        <div class="grammar-grid">
+            <div class="grammar-box">
+                <h3>Bepaald (de / het)</h3>
+                <ul>
+                    <li><b>le</b> = Mannelijk enkelvoud (<i>le garçon</i>)</li>
+                    <li><b>la</b> = Vrouwelijk enkelvoud (<i>la fille</i>)</li>
+                    <li><b>l'</b> = Bij klinker (a, e, i, o, u) of stomme h (<i>l'école</i>)</li>
+                    <li><b>les</b> = Meervoud (<i>les livres</i>)</li>
+                </ul>
+            </div>
+            <div class="grammar-box">
+                <h3>Onbepaald (een)</h3>
+                <ul>
+                    <li><b>un</b> = Mannelijk enkelvoud (<i>un stylo</i>)</li>
+                    <li><b>une</b> = Vrouwelijk enkelvoud (<i>une maison</i>)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- OEFENING 1: DROPDOWN -->
+    <div class="card">
+        <h2>Oefening 1: Kies het juiste lidwoord</h2>
+        <p>Kies het juiste bepaalde of onbepaalde lidwoord uit het keuzemenu.</p>
+        
+        <form id="ex1-form">
+            <div class="exercise-item">
+                <span class="word-label">1. 📄 ... livre (mannelijk)</span>
+                <div>
+                    <select class="ex1-select" data-answer="le">
+                        <option value="">-- Kies --</option>
+                        <option value="le">le</option>
+                        <option value="la">la</option>
+                        <option value="l'">l'</option>
+                        <option value="un">un</option>
+                        <option value="une">une</option>
+                    </select>
+                    <span class="feedback"></span>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <span class="word-label">2. 🚗 ... voiture (vrouwelijk, 'een')</span>
+                <div>
+                    <select class="ex1-select" data-answer="une">
+                        <option value="">-- Kies --</option>
+                        <option value="le">le</option>
+                        <option value="la">la</option>
+                        <option value="une">une</option>
+                        <option value="un">un</option>
+                    </select>
+                    <span class="feedback"></span>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <span class="word-label">3. 🏫 ... école (vrouwelijk, begint met klinker)</span>
+                <div>
+                    <select class="ex1-select" data-answer="l'">
+                        <option value="">-- Kies --</option>
+                        <option value="le">le</option>
+                        <option value="la">la</option>
+                        <option value="l'">l'</option>
+                        <option value="les">les</option>
+                    </select>
+                    <span class="feedback"></span>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <span class="word-label">4. ✏️ ... stylo (mannelijk, 'een')</span>
+                <div>
+                    <select class="ex1-select" data-answer="un">
+                        <option value="">-- Kies --</option>
+                        <option value="un">un</option>
+                        <option value="une">une</option>
+                        <option value="le">le</option>
+                        <option value="la">la</option>
+                    </select>
+                    <span class="feedback"></span>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <span class="word-label">5. 📚 ... livres (meervoud)</span>
+                <div>
+                    <select class="ex1-select" data-answer="les">
+                        <option value="">-- Kies --</option>
+                        <option value="le">le</option>
+                        <option value="la">la</option>
+                        <option value="les">les</option>
+                    </select>
+                    <span class="feedback"></span>
+                </div>
+            </div>
+
+            <button type="button" class="btn" onclick="checkEx1()">Controleer Oefening 1</button>
+        </form>
+    </div>
+
+    <!-- OEFENING 2: INVULVELDEN IN ZINNEN -->
+    <div class="card">
+        <h2>Oefening 2: Vul het lidwoord in</h2>
+        <p>Typ het juiste lidwoord in (<i>le, la, l', les, un, une</i>).</p>
+
+        <div class="exercise-item">
+            <span class="word-label">1. C'est <input type="text" class="fill-input" data-answer="un"> garçon. (een)</span>
+            <span class="feedback"></span>
+        </div>
+
+        <div class="exercise-item">
+            <span class="word-label">2. J'aime <input type="text" class="fill-input" data-answer="la"> musique. (de)</span>
+            <span class="feedback"></span>
+        </div>
+
+        <div class="exercise-item">
+            <span class="word-label">3. Regarde <input type="text" class="fill-input" data-answer="l'"> ordinateur! (de)</span>
+            <span class="feedback"></span>
+        </div>
+
+        <div class="exercise-item">
+            <span class="word-label">4. Ce sont <input type="text" class="fill-input" data-answer="les"> chiens de Thomas. (de)</span>
+            <span class="feedback"></span>
+        </div>
+
+        <div class="exercise-item">
+            <span class="word-label">5. Elle a <input type="text" class="fill-input" data-answer="une"> amie sympa. (een)</span>
+            <span class="feedback"></span>
+        </div>
+
+        <button type="button" class="btn" onclick="checkEx2()">Controleer Oefening 2</button>
+    </div>
+
+</div>
+
+<script>
+    function checkEx1() {
+        const selects = document.querySelectorAll('.ex1-select');
+        selects.forEach(select => {
+            const userAns = select.value.trim().toLowerCase();
+            const correctAns = select.getAttribute('data-answer').toLowerCase();
+            const feedbackSpan = select.nextElementSibling;
+
+            if (userAns === correctAns) {
+                feedbackSpan.textContent = '✓ Goed!';
+                feedbackSpan.className = 'feedback correct';
+            } else {
+                feedbackSpan.textContent = '✗ Fout (antwoord: ' + correctAns + ')';
+                feedbackSpan.className = 'feedback incorrect';
+            }
+        });
+    }
+
+    function checkEx2() {
+        const inputs = document.querySelectorAll('.fill-input');
+        inputs.forEach(input => {
+            const userAns = input.value.trim().toLowerCase();
+            const correctAns = input.getAttribute('data-answer').toLowerCase();
+            const feedbackSpan = input.parentElement.nextElementSibling;
+
+            if (userAns === correctAns) {
+                feedbackSpan.textContent = '✓ Goed!';
+                feedbackSpan.className = 'feedback correct';
+            } else {
+                feedbackSpan.textContent = '✗ Fout (antwoord: ' + correctAns + ')';
+                feedbackSpan.className = 'feedback incorrect';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
